@@ -156,6 +156,7 @@ func NewCFObjects() *CFObjects {
 		SpaceQuotas:      map[string]Quota{},
 		Apps:             map[string]Application{},
 		Processes:        map[string]resources.Process{},
+		Tasks:            map[string]Task{},
 		Routes:           map[string]resources.Route{},
 		RoutesBindings:   map[string]resources.RouteBinding{},
 		Segments:         map[string]resources.IsolationSegment{},
