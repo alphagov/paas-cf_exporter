@@ -16,6 +16,7 @@ type CFObjects struct {
 	SpaceQuotas      map[string]Quota                              `json:"org_quotas"`
 	Apps             map[string]Application                        `json:"apps"`
 	Processes        map[string]resources.Process                  `json:"process"`
+	Tasks            map[string]Task                               `json:"tasks"`
 	Routes           map[string]resources.Route                    `json:"routes"`
 	RoutesBindings   map[string]resources.RouteBinding             `json:"route_bindings"`
 	Segments         map[string]resources.IsolationSegment         `json:"segments"`
@@ -89,6 +90,15 @@ type Application struct {
 	Lifecycle     Lifecycle                 `json:"lifecycle,omitempty"`
 	CreatedAt     string                    `json:"created_at,omitempty"`
 	UpdatedAt     string                    `json:"updated_at,omitempty"`
+}
+
+type Task struct {
+	GUID          string                  `json:"guid,omitempty"`
+	State         constant.TaskState      `json:"state,omitempty"`
+	Relationships resources.Relationships `json:"relationships,omitempty"`
+	CreatedAt     time.Time               `json:"created_at,omitempty"`
+	MemoryInMb    int                     `json:"memory_in_mb,omitempty"`
+	DiskInMb      int                     `json:"disk_in_mb,omitempty"`
 }
 
 type SpaceSummary struct {
